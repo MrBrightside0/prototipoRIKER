@@ -1,0 +1,850 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background-position: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: rgb(65, 47, 129);
+}
+
+nav {
+  background-color: rgb(65, 47, 129);
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+  position: sticky; /* Cambiar de fixed a sticky */
+  top: 0; /* Mantener la navbar en la parte superior */
+  z-index: 10; /* Asegúrate de que la navbar esté sobre otros elementos */
+}
+
+nav ul {
+  width: 100%;
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+nav li {
+  height: 70px;
+}
+
+nav a {
+  height: 100%;
+  padding: 0 30px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: black;
+}
+
+nav a:hover {
+  transition: .6s;
+  background-color: #9185d3;
+}
+
+nav li:first-child {
+  margin-right: auto;
+}
+
+.logo {
+  height: 70px; 
+  width: auto;
+}
+
+.sidebar {
+  z-index: 2;
+  position: fixed;
+  top: 0; 
+  right: 0;
+  height: 100vh;
+  width: 250px;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.sidebar li {
+  width: 100%;
+}
+
+.sidebar a {
+  width: 100%;
+}
+
+.menu-button {
+  display: none;
+}
+
+@media(max-width: 800px) {
+  .hideOnMobile {
+    display: none;
+  }
+  .menu-button {
+    display: block;
+  }
+}
+
+@media(max-width: 400px) {
+  .sidebar {
+    width: 100%;
+  }
+}
+
+/* Banner Styles */
+.banner {
+  position: relative;
+  height: 500px; /* Ajusta la altura según sea necesario */
+  background: url('/assets/Fondo.jpg') no-repeat center center;
+  border: #110c0c;
+  background-size: cover;
+  overflow: hidden;
+  z-index: 1;
+}
+
+
+.banner-content {
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2; /* Asegúrate de que el contenido esté sobre el overlay */
+}
+
+.banner-logo {
+  position: relative;
+  width: 400px; /* Ajusta el tamaño según sea necesario */
+  z-index: 3; /* Asegúrate de que el logo esté sobre el overlay */
+}
+
+.banner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(226, 216, 72, 0.295); /* Color del overlay con opacidad */
+  z-index: 1; /* Asegúrate de que el overlay esté por debajo del contenido */
+}
+
+/* Quiénes Somos Styles */
+/* Contenedor de Información de RIKER */
+/* Contenedor de Información de RIKER */
+.riker-info-container {
+  display: flex; /* Utiliza flexbox para alinear los elementos */
+  align-items: center; /* Alinea verticalmente al centro */
+  background-color: #aabfc9;
+  padding: 80px;
+  border-radius: 10px;
+  max-width: 1600px; /* Aumenta el ancho máximo para acomodar imagen y texto */
+  margin: 50px auto 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.riker-description {
+  max-width: 40%;
+  font-size: 1.9em;
+  color: #555555;
+  line-height: 1.6;
+  flex: 1; /* Ocupa el espacio disponible a la izquierda */
+  margin-right: 120px; /* Añade espacio entre el texto y la imagen */
+}
+
+.riker-image {
+  width: 50%; /* La imagen ocupa el 50% del ancho del contenedor */
+  height: 80%;
+  border-radius: 10px;
+}
+
+/* Estilos responsivos */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .riker-info-container {
+    flex-direction: column;
+    padding: 40px;
+  }
+
+  .riker-description {
+    max-width: 100%;
+    margin-right: 0;
+    margin-bottom: 40px; /* Añade espacio entre el texto y la imagen */
+  }
+
+  .riker-image {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* Móviles */
+@media (max-width: 768px) {
+  .riker-info-container {
+    padding: 20px;
+  }
+
+  .riker-description {
+    font-size: 1.5em;
+  }
+
+  .QS-h2 {
+    font-size: 2em;
+  }
+
+  .QS-description {
+    font-size: 1.5em;
+  }
+
+  .about-us-content {
+    gap: 5%;
+  }
+
+  .about-us-card {
+    width: 100%;
+    margin-top: 20px;
+    padding: 20px;
+  }
+
+  .about-us-image {
+    height: 180px;
+  }
+
+  .about-us-card h3 {
+    font-size: 1.4em;
+  }
+
+  .about-us-card p {
+    font-size: 0.9em;
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+  .riker-info-container {
+    padding: 15px;
+  }
+
+  .riker-description {
+    font-size: 1.2em;
+  }
+
+  .QS-h2 {
+    font-size: 1.8em;
+  }
+
+  .QS-description {
+    font-size: 1.3em;
+  }
+
+  .about-us-card {
+    padding: 15px;
+  }
+
+  .about-us-image {
+    height: 150px;
+  }
+
+  .about-us-card h3 {
+    font-size: 1.2em;
+  }
+
+  .about-us-card p {
+    font-size: 0.8em;
+  }
+}
+
+/* Otros estilos */
+.QS-h2 {
+  font-size: 2.5em;
+  color: #ffffff;
+  margin-top: 50px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.QS-description {
+  font-size: 1.7em;
+  color: #555555;
+  text-align: center;
+  margin-bottom: 40px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-us-content {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10%;
+}
+
+.about-us-card {
+  margin-top: 30px;
+  background-color: #aabfc9;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  padding: 35px;
+  width: 300px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.about-us-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.about-us-image {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.about-us-card h3 {
+  font-size: 1.6em;
+  color: #333333;
+  margin-top: 15px;
+}
+
+.about-us-card p {
+  font-size: 1em;
+  line-height: 1.6;
+  color: #666666;
+  margin-top: 10px;
+}
+
+/* Servicios Styles */
+
+.service-description {
+  margin-top: 30px;
+}
+.services-h2 {
+  font-size: 2.5em;
+  color: #ffffff;
+  margin-top: 70px;
+  margin-bottom: 70px;
+  text-align: center;
+}
+
+.services-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.service-card {
+  background-color: #aabfc9;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  width: calc(50% - 20px); /* Ajusta el ancho para que quepan 2 por línea */
+  display: flex;
+  flex-direction: row; /* Cambia la dirección a fila */
+  gap: 20px; /* Espacio entre la información y las imágenes */
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-sizing: border-box;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.service-info {
+  flex: 1;
+}
+
+.service-images {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 150px); /* Dos columnas de 150px cada una */
+  grid-template-rows: repeat(2, 150px); /* Dos filas de 150px cada una */
+  gap: 10px; /* Espacio entre las imágenes */
+}
+
+.service-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .service-card {
+    flex-direction: column; /* Cambia a columna en pantallas más pequeñas */
+    width: 100%; /* Ancho completo en pantallas pequeñas */
+  }
+
+  .image-grid {
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas de igual tamaño */
+    grid-template-rows: auto; /* Altura automática de las filas */
+  }
+}
+
+/* Carrusel Styles */
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto; /* Centra el carrusel horizontalmente */
+  margin-top: 6rem;
+  overflow: visible; /* Permite que los botones se extiendan fuera del carrusel */
+  margin-bottom: 7rem;
+}
+
+.carousel-images img {
+  width: 100%;
+  display: none;
+  transition: opacity 0.5s ease-in-out; /* Agrega una transición suave para el desvanecimiento */
+}
+
+.carousel-images img.fade-in {
+  display: block;
+  opacity: 1;
+}
+
+.carousel-images img.fade-out {
+  opacity: 0;
+}
+
+/* Estilos de los botones */
+.carousel-prev,
+.carousel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 12px; /* Ajustado para una mejor apariencia en pantallas pequeñas */
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  z-index: 10; /* Asegura que los botones estén encima del carrusel */
+  border-radius: 10%; /* Agrega un borde redondeado */
+  font-size: 1.5rem; /* Ajusta el tamaño del texto dentro de los botones */
+}
+
+.carousel-prev {
+  left: -50px; /* Posición ajustable para que el botón no se recorte */
+}
+
+.carousel-next {
+  right: -50px; /* Posición ajustable para que el botón no se recorte */
+}
+
+.carousel-prev:active,
+.carousel-next:active {
+  background: rgba(0, 0, 0, 0.7); /* Cambio de color al presionar el botón */
+}
+
+/* Media Queries para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .carousel-prev,
+  .carousel-next {
+    padding: 10px; /* Reduce el padding en pantallas pequeñas */
+    font-size: 1.2rem; /* Ajusta el tamaño del texto en pantallas pequeñas */
+    width: 40px; /* Ancho fijo para los botones en pantallas pequeñas */
+    height: 40px; /* Alto fijo para los botones en pantallas pequeñas */
+  }
+
+  .carousel-prev {
+    left: -10px; /* Ajusta la posición izquierda en pantallas pequeñas */
+  }
+
+  .carousel-next {
+    right: -10px; /* Ajusta la posición derecha en pantallas pequeñas */
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-prev,
+  .carousel-next {
+    padding: 8px; /* Reduce aún más el padding en pantallas más pequeñas */
+    font-size: 1rem; /* Ajusta el tamaño del texto en pantallas muy pequeñas */
+    width: 30px; /* Ancho fijo más pequeño para los botones en pantallas muy pequeñas */
+    height: 30px; /* Alto fijo más pequeño para los botones en pantallas muy pequeñas */
+  }
+
+  .carousel-prev {
+    left: -5px; /* Ajusta la posición izquierda en pantallas muy pequeñas */
+  }
+
+  .carousel-next {
+    right: -5px; /* Ajusta la posición derecha en pantallas muy pequeñas */
+  }
+}
+
+/* Certificado REPSE */
+.certificado-repse {
+  padding: 20px;
+  text-align: center;
+  background-color: #f9f9f9; /* Color de fondo ligero */
+}
+
+.certificado-repse h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.certificado-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.certificado-image {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ddd; /* Borde sutil */
+  border-radius: 8px; /* Bordes redondeados */
+}
+
+/* Clientes Carousel Styles (similar al primer carrusel) */
+.clientes-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto; /* Centra el carrusel horizontalmente */
+  margin-top: 6rem;
+  overflow: visible; /* Permite que los botones se extiendan fuera del carrusel */
+  margin-bottom: 7rem;
+}
+
+.clientes-carousel-images img {
+  width: 100%;
+  display: none;
+  transition: opacity 0.5s ease-in-out; /* Agrega una transición suave para el desvanecimiento */
+}
+
+.clientes-carousel-images img.fade-in {
+  display: block;
+  opacity: 1;
+}
+
+.clientes-carousel-images img.fade-out {
+  opacity: 0;
+}
+
+/* Estilos de los botones para el carrusel de clientes */
+.clientes-carousel-prev,
+.clientes-carousel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 12px; /* Ajustado para una mejor apariencia en pantallas pequeñas */
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  z-index: 10; /* Asegura que los botones estén encima del carrusel */
+  border-radius: 10%; /* Agrega un borde redondeado */
+  font-size: 1.5rem; /* Ajusta el tamaño del texto dentro de los botones */
+}
+
+.clientes-carousel-prev {
+  left: -50px; /* Posición ajustable para que el botón no se recorte */
+}
+
+.clientes-carousel-next {
+  right: -50px; /* Posición ajustable para que el botón no se recorte */
+}
+
+.clientes-carousel-prev:active,
+.clientes-carousel-next:active {
+  background: rgba(0, 0, 0, 0.7); /* Cambio de color al presionar el botón */
+}
+
+/* Media Queries para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .clientes-carousel-prev,
+  .clientes-carousel-next {
+    padding: 10px; /* Reduce el padding en pantallas pequeñas */
+    font-size: 1.2rem; /* Ajusta el tamaño del texto en pantallas pequeñas */
+    width: 40px; /* Ancho fijo para los botones en pantallas pequeñas */
+    height: 40px; /* Alto fijo para los botones en pantallas pequeñas */
+  }
+
+  .clientes-carousel-prev {
+    left: -10px; /* Ajusta la posición izquierda en pantallas pequeñas */
+  }
+
+  .clientes-carousel-next {
+    right: -10px; /* Ajusta la posición derecha en pantallas pequeñas */
+  }
+}
+
+@media (max-width: 480px) {
+  .clientes-carousel-prev,
+  .clientes-carousel-next {
+    padding: 8px; /* Reduce aún más el padding en pantallas más pequeñas */
+    font-size: 1rem; /* Ajusta el tamaño del texto en pantallas muy pequeñas */
+    width: 30px; /* Ancho fijo más pequeño para los botones en pantallas muy pequeñas */
+    height: 30px; /* Alto fijo más pequeño para los botones en pantallas muy pequeñas */
+  }
+
+  .clientes-carousel-prev {
+    left: -5px; /* Ajusta la posición izquierda en pantallas muy pequeñas */
+  }
+
+  .clientes-carousel-next {
+    right: -5px; /* Ajusta la posición derecha en pantallas muy pequeñas */
+  }
+}
+
+/* Certificado REPSE */
+.certificado-repse {
+  padding: 20px;
+  text-align: center;
+  background-color: #f9f9f9; /* Color de fondo ligero */
+}
+
+.certificado-repse h2 {
+  font-size: 3rem;
+  margin-bottom: 40px;
+}
+
+.certificado-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.certificado-image {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ddd; /* Borde sutil */
+  border-radius: 8px; /* Bordes redondeados */
+}
+
+.clientes h2 {
+  margin-top: 3rem;
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 5rem;
+}
+
+/* Historia y Valores Section Styles */
+.historia-valores-container {
+  display: flex; /* Usa flexbox para alinear las secciones una al lado de la otra */
+  justify-content: space-between; /* Espacio igual entre los cuadros */
+  gap: 20px; /* Espacio entre los cuadros */
+  margin: 0 auto; /* Centra el contenedor en la página */
+  padding: 20px;
+  max-width: 1200px; /* Ancho máximo para el contenedor */
+}
+
+.historia, .valores {
+  flex: 1; /* Ambos cuadros ocupan el mismo espacio */
+  background-color: #ffffff; /* Color de fondo blanco */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  padding: 20px;
+  box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+}
+
+.historia h2, .valores h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #333; /* Color de texto oscuro */
+  text-align: center; /* Centra el título */
+}
+
+.historia p {
+  font-size: 2.3rem; /* Tamaño de fuente más grande para Historia */
+  line-height: 1.3; /* Espaciado de línea más amplio */
+  color: #555; /* Color de texto gris medio */
+  margin: 0 auto;
+  max-width: 800px; /* Ancho máximo del texto */
+}
+
+.valores p {
+  font-size: 16px; /* Tamaño de fuente normal para Valores */
+  line-height: 1.6;
+  color: #555; /* Color de texto gris medio */
+  margin: 0 auto;
+  max-width: 800px; /* Ancho máximo del texto */
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .historia-valores-container {
+    flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+  }
+
+  .historia, .valores {
+    margin-bottom: 20px; /* Espacio entre los cuadros en pantallas pequeñas */
+  }
+
+  .historia h2, .valores h2 {
+    font-size: 24px;
+  }
+
+  .historia p {
+    font-size: 18px; /* Tamaño de fuente ajustado para Historia en pantallas pequeñas */
+  }
+
+  .valores p {
+    font-size: 14px;
+  }
+}
+/* Contacto Section Styles */
+.contacto-carta {
+  max-width: 600px; /* Ancho máximo de la carta */
+  margin: 50px auto; /* Centra la carta horizontalmente */
+  padding: 20px;
+  background-color: #f4f4f4; /* Color de fondo suave */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para un efecto de carta */
+  text-align: left;
+}
+
+.contacto-carta h2 {
+  font-size: 28px; /* Tamaño del título */
+  color: #333; /* Color del título */
+  margin-bottom: 20px; /* Espacio debajo del título */
+  text-align: center; /* Centra el título */
+}
+
+.contacto-carta p {
+  font-size: 20px; /* Tamaño grande del texto */
+  line-height: 1.8;
+  color: #333; /* Color de texto oscuro */
+  margin: 0; /* Elimina márgenes en los párrafos */
+}
+
+.contacto-carta p span {
+  font-weight: bold; /* Resalta los títulos de los datos */
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .contacto-carta {
+      padding: 15px;
+  }
+
+  .contacto-carta p {
+      font-size: 18px; /* Reduce el tamaño en pantallas pequeñas */
+  }
+
+  .contacto-carta h2 {
+      font-size: 24px; /* Reduce el tamaño del título en pantallas pequeñas */
+  }
+}
+
+@media (max-width: 480px) {
+  .contacto-carta {
+      padding: 10px;
+  }
+
+  .contacto-carta p {
+      font-size: 16px; /* Reduce aún más el tamaño en pantallas muy pequeñas */
+  }
+
+  .contacto-carta h2 {
+      font-size: 20px; /* Reduce el tamaño del título en pantallas muy pequeñas */
+  }
+}
+
+.footer {
+  position: relative;
+  width: 100%;
+  background: #286bcf;
+  min-height: 80px; /* Reduce min-height */
+  padding: 15px 20px; /* Reduce padding */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.social-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 10px 5px;
+  flex-wrap: wrap;
+}
+
+.icon-elem {
+  list-style: none;
+}
+
+.icon {
+  color: white;
+  font-size: 28px; /* Reduce font-size */
+  display: inline-block;
+  margin: 0 8px; /* Ajusta margin */
+  transition: 0.5s;
+}
+
+.icon:hover {
+  transform: translateY(-10px);
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  margin: 10px 0;
+  flex-wrap: wrap;
+}
+
+.menu-elem {
+  list-style: none;
+}
+.menu-icon {
+  color: white;
+  font-size: 20px;
+  display: inline-block;
+  text-decoration: none;
+  margin: 5px 10px;
+  opacity: 0.5;
+  transition: 0.3s;
+}
+
+.menu-icon:hover {
+  opacity: 1;
+}
+
+.text {
+  color: white;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-size: 16px; /* Reduce font-size */
+}
+/* Media query para pantallas pequeñas */
+@media (max-width: 600px) {
+  .footer {
+    padding: 10px 15px; /* Reduce padding */
+  }
+
+  .icon {
+    font-size: 24px; /* Reduce font-size */
+    margin: 0 6px; /* Ajusta margin */
+  }
+
+  .text {
+    font-size: 14px; /* Reduce font-size */
+  }
+
+  .menu-icon {
+    font-size: 18px; /* Reduce font-size */
+  }
+}
